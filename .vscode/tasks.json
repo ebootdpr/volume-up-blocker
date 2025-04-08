@@ -1,0 +1,40 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "echo Hello"
+        },
+        {
+            "label": "Run",
+            "type": "shell",
+            "command": "./directweightpaint.exe",
+            "group": "build"
+        },
+        {
+            "label": "Build X64",
+            "type": "shell",
+            "command": "jai first.jai -x64",
+            //"presentation": {"echo": true, "reveal": "always", "focus": false, "panel": "shared", "showReuseMessage": false, "clear": true},
+            "group": {"kind": "build", "isDefault": true}
+        },
+        {
+            "label": "Build LLVM",
+            "type": "shell",
+            "command": "jai first.jai - COMPILE_SHADERS",
+            // "command": "jai first.jai",
+            //"presentation": {"echo": true, "reveal": "always", "focus": false, "panel": "shared", "showReuseMessage": false, "clear": true},
+            "group": {"kind": "build"}
+        },
+        {
+            "label": "Build Shaders",
+            "type": "shell",
+            "command": "jai first.jai - COMPILE_SHADERS",
+            //"presentation": {"echo": true, "reveal": "always", "focus": false, "panel": "shared", "showReuseMessage": false, "clear": true},
+            "group": {"kind": "build"}
+        }
+    ]
+}

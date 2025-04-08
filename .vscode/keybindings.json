@@ -1,0 +1,27 @@
+[
+    {
+        "key": "f1",
+        "command": "-workbench.action.showCommands"
+    },
+	{
+    "key": "f1",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Run"
+	},
+	{
+    "key": "f2",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Build X64"
+	},
+	{
+    "key": "f3",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Build LLVM"
+	},
+	{
+    "key": "f4",
+    "command": "workbench.action.tasks.runTask",
+    "args": "Build Shaders"
+	}
+]
+
