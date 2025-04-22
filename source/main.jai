@@ -32,6 +32,7 @@ main :: () {
     UnhookWindowsHookEx(keyboard_hook);
 }
 
+should_block:=1;
 keyboard_hook_procedure :: (code: s32, wparam: WPARAM, lparam: LPARAM) -> LRESULT #c_call {
     push_context,defer_pop;
     if code >= 0 {
@@ -43,11 +44,24 @@ keyboard_hook_procedure :: (code: s32, wparam: WPARAM, lparam: LPARAM) -> LRESUL
             return 1;  
         }
 
-        
-        if kb.vkCode == VK_VOLUME_UP {
+        // log("%",kb);
+      
+
+    
+        // if kb.vkCode == VK_SEPARATOR {
+         if kb.vkCode == VK_DIVIDE {
+            should_block = CallNextHookEx(null, code, wparam, lparam);
+            //play unblock sound
+        }
+        if kb.vkCode == VK_MULTIPLY {
+            should_block = 1;
+            //play block sound (it must be low volume)
+        }
+
+          if kb.vkCode == VK_VOLUME_UP {
             // print("Blocked Volume Up key event (by vkCode)\n"); This means that is a windows 11 problem.
             // Return non-zero to block the key
-            return 1;
+                return should_block;
         }
     }
     

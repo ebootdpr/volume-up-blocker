@@ -11,7 +11,7 @@
         {
             "label": "Run",
             "type": "shell",
-            "command": "./directweightpaint.exe",
+            "command": "./volumeupblocker.exe",
             "group": "build"
         },
         {
